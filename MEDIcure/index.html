@@ -13,15 +13,102 @@
 <body>
     <div class="container">
         <nav>
+            <img src="/image/log.jpg" alt="Description of the image" style="width:200px" style="height:200px">
             <div class="nav__logo">MEDIcure</div>
+            
+
             <ul class="nav__links">
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Home</a>
-                <li class="link"><a href="#">Insurance</a></li>
-                <li class="link"><a href="#">Services</a></li>
-                <li class="link"><a href="#">About</a></li>
-                <a href="https://youtu.be/ZyhrYis509A?si=sFzrQIQzbWq8jG0c&t=13">Contact Us</a>
+                <li class="link"><a href="/pages/insurance.html">Insurance</a></li>
+                <li class="link"><a href="/pages/services.html">Services</a></li>
+                <li class="link"><a href="/pages/about.html">About</a></li>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Contact Us</a>
             </ul>
             <button class="btn">Register</button><button class="btn">Shop Now</button>
+            <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medicine Search</title>
+<style>
+    /* Search bar style */
+    .search-container {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 9999;
+    }
+    .search-bar {
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    /* Message style */
+    .message {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: Avallon, sans-serif;
+        font-size: 18px;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        display: none; /* Initially hidden */
+        cursor: pointer;
+        z-index: 9998;
+    }
+</style>
+</head>
+<body>
+
+<div class="search-container">
+    <input type="text" class="search-bar" placeholder="Search medicines...">
+</div>
+
+<div class="message" id="message">
+    Just wondering, are you sick? I think you are lacking vitamin me 😉
+</div>
+
+<script>
+    // Get the search input element
+    var searchInput = document.querySelector('.search-bar');
+
+    // Get the message element
+    var message = document.getElementById('message');
+
+    // Event listener for input change
+    searchInput.addEventListener('input', function() {
+        var query = searchInput.value.trim();
+        if (query !== '') {
+            showMessage();
+        } else {
+            hideMessage();
+        }
+    });
+
+    // Function to show message
+    function showMessage() {
+        message.style.display = 'block';
+    }
+
+    // Function to hide message
+    function hideMessage() {
+        message.style.display = 'none';
+    }
+
+    // Click event listener to hide message when clicked anywhere on the screen
+    document.addEventListener('click', function() {
+        hideMessage();
+    });
+</script>
+
+</body>
+</html>
         </nav>
         <header class="header">
             <div class="content">
@@ -68,6 +155,70 @@
                             <span><i class="ri-check-line"></i></span>
                             Toll-free emergency number 1800-1850-2493
                         </li>
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <title>Location Access</title>
+                            <style>
+                                /* Notification style */
+                                .notification {
+                                    position: fixed;
+                                    bottom: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    background-color: #333;
+                                    color: #fff;
+                                    padding: 15px;
+                                    text-align: center;
+                                    display: none; /* Initially hidden */
+                                }
+                            </style>
+                            </head>
+                            <body>
+                            
+                            <div class="notification" id="locationPermission">
+                                <p>Would you like to share your location?</p>
+                                <button id="allowLocation">Allow</button>
+                                <button id="denyLocation">Deny</button>
+                            </div>
+                            
+                            <script>
+                                // Get the notification element
+                                var notification = document.getElementById('locationPermission');
+                            
+                                // Check for Geolocation support
+                                if (navigator.geolocation) {
+                                    // If supported, show the notification
+                                    notification.style.display = 'block';
+                            
+                                    // Add event listener to allow location button
+                                    document.getElementById('allowLocation').addEventListener('click', function() {
+                                        // Hide the notification
+                                        notification.style.display = 'none';
+                                        // Get user's location using Geolocation API
+                                        navigator.geolocation.getCurrentPosition(function(position) {
+                                            // Save user's location or perform any other action
+                                            var latitude = position.coords.latitude;
+                                            var longitude = position.coords.longitude;
+                                            console.log('Latitude: ' + latitude + ', Longitude: ' + longitude);
+                                            // You can use Google Maps API here to save the location or perform any other action
+                                        });
+                                    });
+                            
+                                    // Add event listener to deny location button
+                                    document.getElementById('denyLocation').addEventListener('click', function() {
+                                        // Hide the notification
+                                        notification.style.display = 'none';
+                                    });
+                                } else {
+                                    // If Geolocation is not supported, hide the notification
+                                    notification.style.display = 'none';
+                                }
+                            </script>
+                            
+                            </body>
+                            </html>
+                            
 
                     </ul>
                 </div>
@@ -75,5 +226,6 @@
         </header>
     </div>
 </body>
+
 
 </html>
